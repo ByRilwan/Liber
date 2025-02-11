@@ -1,10 +1,12 @@
-import { handleAuth } from '@kinde-oss/kinde-auth-nextjs/server'
-import { NextRequest } from 'next/server'
+import { handleAuth } from "@kinde-oss/kinde-auth-nextjs/server";
+import { NextRequest } from "next/server";
 
 export async function GET(
   request: NextRequest,
-  { params }: any
+  context: { params: { kindeAuth: string } } // Explicitly define context type
 ) {
-  const endpoint = params.kindeAuth
-  return handleAuth(request, endpoint)
+  const { params } = context; // Destructure params from context
+  const endpoint = await params.kindeAuth; // Await params before using
+
+  return handleAuth(request, endpoint);
 }

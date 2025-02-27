@@ -1,3 +1,5 @@
+import {Document} from "react-pdf"
+
 
 const PdfRenderer = () => {
     return <div className="w-full bg-white rounded-md shadow flex flex-col items-center">
@@ -9,8 +11,9 @@ const PdfRenderer = () => {
 
         <div className="flex-1 w-full max-h-screen">
             <div>
-            </div>
+                <Document></Document>
         </div>
+    </div>
     </div>
 }
 
